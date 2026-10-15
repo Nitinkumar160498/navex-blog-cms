@@ -91,3 +91,32 @@ The website is deployed on Netlify and connected to the GitHub repository.
 - Build command: `npm run sync-sanity && npm run build`
 - Publish directory: `public`
 - Hugo version: `0.168.0`
+
+## Sanity Studio
+
+The Sanity Studio source code is available in the `sanity-studio/` directory.
+
+To run the Studio locally:
+
+1. Open a terminal in the repository root.
+2. Install the Studio dependencies:
+
+   ```bash
+   npm ci --prefix sanity-studio
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev --prefix sanity-studio
+   ```
+
+4. Open the local URL displayed in the terminal and sign in to Sanity.
+
+To build the Studio for production:
+
+```bash
+npm run build --prefix sanity-studio
+```
+
+The Studio uses the configured Sanity project ID and the `production` dataset. Publishing content in Sanity does not automatically update the Hugo site; run `npm run sync-sanity` and rebuild the site to sync content.
