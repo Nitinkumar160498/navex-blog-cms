@@ -1,4 +1,4 @@
-﻿# NavEX Blog CMS
+# NavEX Blog CMS
 
 A responsive blog website built with Sanity Studio and Hugo.
 
@@ -84,7 +84,7 @@ Sanity provides structured content management, while Hugo generates static pages
 
 Website: https://navex-blog-cms.netlify.app/
 
-## Deployment
+## Netlify Configuration
 
 The website is deployed on Netlify and connected to the GitHub repository.
 
