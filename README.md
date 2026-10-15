@@ -79,3 +79,15 @@ The site can be deployed to Netlify or another static hosting provider. Configur
 ## Trade-offs
 
 Sanity provides structured content management, while Hugo generates static pages. Content changes require synchronization and a new build. This keeps the website simple and fast but requires a deployment workflow for automatic updates.
+
+## Live Demo
+
+Website: https://navex-blog-cms.netlify.app/
+
+## Deployment
+
+The website is deployed on Netlify and connected to the GitHub repository.
+
+- Build command: `npm run sync-sanity && npm run build`
+- Publish directory: `public`
+- Hugo version: `0.168.0`
