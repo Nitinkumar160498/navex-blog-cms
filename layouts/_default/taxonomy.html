@@ -1,0 +1,16 @@
+﻿{{ define "main" }}
+<section aria-labelledby="taxonomy-title">
+  <h1 id="taxonomy-title">{{ .Title }}</h1>
+
+  {{ with .Pages }}
+  {{ range . }}
+  <article>
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <p>{{ .Summary }}</p>
+  </article>
+  {{ end }}
+  {{ else }}
+  <p>No blog posts found in this section yet.</p>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,101 @@
+﻿@use '../abstracts/variables' as v;
+
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-wrap: anywhere;
+}
+
+.post-header {
+  margin-bottom: v.$spacing-large;
+
+  h1 {
+    margin-bottom: v.$spacing-medium;
+  }
+
+  .post-excerpt {
+    color: v.$color-muted;
+    font-size: 1.125rem;
+  }
+}
+
+.post-meta,
+.reading-time {
+  color: v.$color-muted;
+  font-size: 0.9rem;
+}
+
+.post-hero-image {
+  width: 100%;
+  margin-top: v.$spacing-large;
+  border-radius: v.$border-radius;
+}
+
+.table-of-contents {
+  margin: v.$spacing-large 0;
+  padding: v.$spacing-large;
+  background: v.$color-white;
+  border: 1px solid v.$color-border;
+  border-radius: v.$border-radius;
+
+  h2 {
+    margin-bottom: v.$spacing-medium;
+  }
+
+  ul {
+    padding-left: v.$spacing-large;
+    list-style: disc;
+  }
+}
+
+.post-content {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: v.$spacing-large 0 v.$spacing-medium;
+  }
+
+  p {
+    margin-bottom: v.$spacing-medium;
+  }
+
+  ul,
+  ol {
+    margin: v.$spacing-medium 0;
+    padding-left: v.$spacing-large;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  img {
+    height: auto;
+    margin: v.$spacing-large 0;
+    border-radius: v.$border-radius;
+  }
+}
+
+.post-footer {
+  margin-top: v.$spacing-section;
+  padding-top: v.$spacing-large;
+  border-top: 1px solid v.$color-border;
+}
+
+#copy-link-status {
+  margin-top: v.$spacing-small;
+  color: v.$color-muted;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .table-of-contents {
+    padding: v.$spacing-medium;
+  }
+}

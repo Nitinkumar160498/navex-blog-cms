@@ -1,0 +1,47 @@
+﻿{{ define "main" }}
+  <section class="hero">
+    <h1>Welcome to Navex Blog</h1>
+    <p>Explore articles about technology, web development, and modern digital experiences.</p>
+  </section>
+
+  <section aria-labelledby="latest-posts">
+    <h2 id="latest-posts">Latest Blog Posts</h2>
+
+    {{ $posts := hugo.Data.sanity.posts }}
+
+    {{ if $posts }}
+      <div class="post-list">
+        {{ range $posts }}
+          <article class="post-card">
+            <h3>
+              <a href="{{ printf "/posts/%s/" .slug }}">
+                {{ .title }}
+              </a>
+            </h3>
+
+            {{ with .publishDate }}
+              <p>
+                <time datetime="{{ . }}">{{ time.Format "January 2, 2006" . }}</time>
+              </p>
+            {{ end }}
+
+            {{ with .excerpt }}
+              <p>{{ . }}</p>
+            {{ end }}
+
+            {{ with .category }}
+              <p>Category: {{ .title }}</p>
+            {{ end }}
+
+            {{ with .author }}
+              <p>Written by: {{ .name }}</p>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p>No blog posts available yet. Please check back soon.</p>
+    {{ end }}
+  </section>
+{{ end }}
+

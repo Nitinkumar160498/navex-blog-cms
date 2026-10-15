@@ -1,0 +1,43 @@
+﻿@use '../abstracts/variables' as v;
+
+header {
+  background: v.$color-white;
+  border-bottom: 1px solid v.$color-border;
+  padding: v.$spacing-medium v.$spacing-large;
+
+  nav {
+    max-width: v.$container-width;
+    margin: 0 auto;
+  }
+
+  nav a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+main {
+  max-width: v.$container-width;
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: v.$spacing-section v.$spacing-large;
+}
+
+body > footer {
+  padding: v.$spacing-large;
+  text-align: center;
+  color: v.$color-muted;
+  background: v.$color-white;
+  border-top: 1px solid v.$color-border;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: v.$spacing-medium;
+  }
+
+  main {
+    padding: v.$spacing-large v.$spacing-medium;
+  }
+}

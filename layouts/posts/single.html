@@ -1,0 +1,81 @@
+﻿{{ define "main" }}
+<article class="blog-post">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Description }}
+    <p class="post-excerpt">{{ . }}</p>
+    {{ end }}
+
+    <p class="post-meta">
+      {{ with .Date }}
+      <time datetime="{{ .Format "2006-01-02" }}">
+        {{ .Format "January 2, 2006" }}
+      </time>
+      {{ end }}
+
+      {{ with .Params.authors }}
+      <span> | By {{ index . 0 }}</span>
+      {{ end }}
+    </p>
+
+    <p class="reading-time">
+      {{ $minutes := div (countwords .Content | add 199) 200 }}
+      {{ if lt $minutes 1 }}{{ $minutes = 1 }}{{ end }}
+      {{ $minutes }} min read
+    </p>
+
+    {{ with .Params.heroImage }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="post-hero-image">
+    {{ end }}
+  </header>
+
+  {{ with .TableOfContents }}
+  <nav class="table-of-contents" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of Contents</h2>
+    {{ . }}
+  </nav>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <button type="button" id="copy-link-button">Copy article link</button>
+  <p id="copy-link-status" aria-live="polite"></p>
+
+
+  <footer class="post-footer">
+    {{ with $.GetTerms "categories" }}
+    <p>
+      Category:
+      {{ range . }}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </p>
+    {{ end }}
+
+    {{ with $.GetTerms "authors" }}
+    <p>
+      Author:
+      {{ range . }}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </p>
+    {{ end }}
+
+    {{ with .Params.authorBio }}
+    <section aria-labelledby="author-heading">
+      <h2 id="author-heading">About the Author</h2>
+      <p>{{ . }}</p>
+    </section>
+    {{ end }}
+
+    <p><a href="{{ .Site.Home.RelPermalink }}">? Back to all blog posts</a></p>
+  </footer>
+
+  {{ $script := resources.Get "js/copy-link.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+</article>
+{{ end }}
+

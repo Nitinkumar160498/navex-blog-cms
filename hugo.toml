@@ -1,0 +1,11 @@
+﻿baseURL = "http://localhost:1313/"
+title = "Navex Blog"
+enableRobotsTXT = true
+locale = "en-US"
+
+[params]
+  description = "Explore articles about technology, web development, and modern digital experiences."
+
+[taxonomies]
+  category = 'categories'
+  author = 'authors'
