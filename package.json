@@ -1,0 +1,21 @@
+{
+  "name": "hugo-blog-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sync-sanity": "node scripts/sync-sanity.js",
+    "build:css": "sass assets/scss/main.scss assets/css/main.css",
+    "build": "npm run build:css && hugo",
+    "dev": "hugo server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@portabletext/markdown": "^2.5.1",
+    "@sanity/client": "^8.9.0"
+  }
+}
