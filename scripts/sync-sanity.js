@@ -1,4 +1,4 @@
-﻿const { createClient } = require("@sanity/client");
+const { createClient } = require("@sanity/client");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -42,6 +42,13 @@ async function syncPosts() {
     fs.mkdirSync(contentPath, { recursive: true });
 
     fs.writeFileSync(dataPath, JSON.stringify(posts, null, 2), "utf8");
+
+    // Remove old generated Markdown files before syncing current Sanity posts.
+    for (const file of fs.readdirSync(contentPath)) {
+      if (file.endsWith(".md")) {
+        fs.unlinkSync(path.join(contentPath, file));
+      }
+    }
 
     for (const post of posts) {
       if (!post.slug) {
