@@ -1,0 +1,13 @@
+﻿node_modules/
+**/node_modules/
+.sanity/
+**/.sanity/
+public/
+resources/_gen/
+.hugo_build.lock
+.env
+.env.*
+!.env.example
+sanity-studio/dist/
+
+assets/css/*.css.map
