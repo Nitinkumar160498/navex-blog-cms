@@ -1,4 +1,4 @@
-{{ define "main" }}
+﻿{{ define "main" }}
 <article class="blog-post">
   <header class="post-header">
     <h1>{{ .Title }}</h1>
@@ -71,12 +71,13 @@
     </section>
     {{ end }}
 
-    <p><a href="{{ .Site.Home.RelPermalink }}">? Back to all blog posts</a></p>
+    <p><a href="{{ .Site.Home.RelPermalink }}">&larr; Back to all blog posts</a></p>
   </footer>
 
   {{ $script := resources.Get "js/copy-link.js" | minify | fingerprint }}
   <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
 </article>
 {{ end }}
+
 
 
